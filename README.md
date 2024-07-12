@@ -74,6 +74,7 @@ Some examples of websites using Franklin (_if you're using Franklin with a publi
 * [Jose Storopoli's website](https://storopoli.io/) personal website with bootstrap buttons along with FontAwesome and Academicons icons ([repo](https://git.sr.ht/~storopoli/storopoli.io))
 * [ETH Zurich's Solving PDEs in parallel on GPUs with Julia](https://eth-vaw-glaciology.github.io/course-101-0250-00/) course website
 * [Julia Package Comparisons](https://juliapackagecomparisons.github.io/) is a website to help Julia users discover and choose between packages. ([repo](https://github.com/JuliaPackageComparisons/JuliaPackageComparisons.github.io))
+* [Kazi Abu Rousan's Website](https://rousan.netlify.app/) for writing blogs, made using Minimal Mistakes. Visit the [repo](https://github.com/aburousan/azaz) to see the code.
 
 **Custom templates** (i.e. migrating an existing design)
 * The [Julia website](https://julialang.org), including the blog, are deployed using Franklin ([repo](https://github.com/JuliaLang/www.julialang.org))
