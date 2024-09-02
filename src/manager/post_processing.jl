@@ -302,7 +302,8 @@ function verify_links_page(path::AS, online::Bool)
             link = m.captures[1] * m.captures[2]
             ok = false
             try
-                ok = HTTP.request("HEAD", link, timeout=3).status == 200
+                headers = contains(link, "doi.org") ? ["Accept" => "application/x-bibtex"] : []
+                ok = HTTP.request("HEAD", link, headers, timeout=3).status == 200
             catch e
             end
             if !ok
