@@ -7,39 +7,40 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        persist-credentials: false
-    - name: Install python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.8'
-    - run: pip install matplotlib
-    - name: Install Julia
-      uses: julia-actions/setup-julia@v1
-      with:
-        version: '1'
-    - run: julia -e '
-            using Pkg;
-            Pkg.add(Pkg.PackageSpec(name="NodeJS"));
-            using NodeJS;
-            run(`$(npm_cmd()) install lunr`);
-            run(`$(npm_cmd()) install cheerio`);
-            Pkg.add(Pkg.PackageSpec(name="Franklin", rev="master"));
-            using Franklin;
-            cd("docs");
-            Pkg.activate("."); Pkg.instantiate();
-            serve(single=true, cleanup=false); lunr(); optimize(minify=false, prerender=false);
-            cd("../demos");
-            Pkg.activate("."); Pkg.instantiate();
-            optimize(minify=false, prerender=false);
-            dst = "../docs/__site/demos";
-            mkpath(dst);
-            foreach(p -> cp("__site/$p", "$dst/$p"), readdir("__site"));'
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: docs/__site
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.8"
+      - run: pip install matplotlib
+      - name: Install Julia
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: "1"
+      - uses: julia-actions/cache@v2
+      - run: julia -e '
+          using Pkg;
+          Pkg.add(Pkg.PackageSpec(name="NodeJS"));
+          using NodeJS;
+          run(`$(npm_cmd()) install lunr`);
+          run(`$(npm_cmd()) install cheerio`);
+          Pkg.add(Pkg.PackageSpec(name="Franklin", rev="master"));
+          using Franklin;
+          cd("docs");
+          Pkg.activate("."); Pkg.instantiate();
+          serve(single=true, cleanup=false); lunr(); optimize(minify=false, prerender=false);
+          cd("../demos");
+          Pkg.activate("."); Pkg.instantiate();
+          optimize(minify=false, prerender=false);
+          dst = "../docs/__site/demos";
+          mkpath(dst);
+          foreach(p -> cp("__site/$p", "$dst/$p"), readdir("__site"));'
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs/__site
