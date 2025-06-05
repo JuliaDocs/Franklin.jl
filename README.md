@@ -8,12 +8,12 @@
 <p align="center">
   <img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg"
        alt="Lifecycle">
-  <a href="https://github.com/tlienart/Franklin.jl/actions">
-    <img src="https://github.com/tlienart/Franklin.jl/workflows/CI/badge.svg"
+  <a href="https://github.com/JuliaDocs/Franklin.jl/actions">
+    <img src="https://github.com/JuliaDocs/Franklin.jl/workflows/CI/badge.svg"
          alt="Build Status">
   </a>
-  <a href="http://codecov.io/github/tlienart/Franklin.jl?branch=master">
-    <img src="http://codecov.io/github/tlienart/Franklin.jl/coverage.svg?branch=master"
+  <a href="http://codecov.io/github/JuliaDocs/Franklin.jl?branch=master">
+    <img src="http://codecov.io/github/JuliaDocs/Franklin.jl/coverage.svg?branch=master"
          alt="Coverage">
   </a>
 </p>
@@ -24,7 +24,7 @@ The base syntax is plain markdown with a few extensions such as the ability to d
 
 Franklin has a channel **#franklin** on the Julia slack, this is the best place to ask usage questions.
 
-**Note**: I'm looking for people with web-dev chops who would be keen to help improve and enrich the base themes available at [FranklinTemplates.jl](https://github.com/tlienart/FranklinTemplates.jl), even if you're not super confident in Julia. More generally, if you would like to work on something or fix something in either Franklin or FranklinTemplates, please reach out on Slack, I will gladly help you get started.
+**Note**: I'm looking for people with web-dev chops who would be keen to help improve and enrich the base themes available at [FranklinTemplates.jl](https://github.com/JuliaDocs/FranklinTemplates.jl), even if you're not super confident in Julia. More generally, if you would like to work on something or fix something in either Franklin or FranklinTemplates, please reach out on Slack, I will gladly help you get started.
 
 ## Docs
 
@@ -138,8 +138,8 @@ While Franklin broadly supports standard Markdown there are a few things that ma
 ## Associated repositories
 
 * [LiveServer.jl](https://github.com/asprionj/LiveServer.jl) a package authored with [Jonas Asprion](https://github.com/asprionj) to render and watch the content of a local folder in the browser.
-* [FranklinTemplates.jl](https://github.com/tlienart/FranklinTemplates.jl) the repositories where Franklin themes/templates are developed.
-* [Xranklin.jl](https://github.com/tlienart/Xranklin.jl) experimental repo for a refactoring of Franklin.jl
+* [FranklinTemplates.jl](https://github.com/JuliaDocs/FranklinTemplates.jl) the repositories where Franklin themes/templates are developed.
+* [Xranklin.jl](https://github.com/JuliaDocs/Xranklin.jl) experimental repo for a refactoring of Franklin.jl
 
 ## Licenses
 

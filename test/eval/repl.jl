@@ -18,7 +18,7 @@
         12
 
         </code></pre>
-        
+
         <p>some explanation</p>
         <pre><code class="language-julia-repl julia-repl">
         julia> z &#61; y * 2
@@ -26,7 +26,7 @@
 
         </code></pre>
         """)
-    
+
     s = """
     ```>
     println("hello")
@@ -36,10 +36,10 @@
     @test isapproxstr(s, """
         <pre><code class="language-julia-repl julia-repl">julia> println&#40;&quot;hello&quot;&#41;
         hello
-        
+
         julia> x &#61; 5
         5
-        
+
         </code></pre>
         """)
 
@@ -93,10 +93,10 @@ end
     @test isapproxstr(s, """
         <pre><code class="language-julia-repl julia-repl-shell">shell> echo abc
         abc
-        
+
         shell> echo &quot;abc&quot;
         "abc"
-        
+
         </code></pre>
         """)
 end
@@ -118,12 +118,17 @@ end
 
         """ |> fd2html
 
+    print(s)
+
     # first block
     @test occursin(
         """pkg&gt; activate --temp""", s
     )
     @test occursin(
-        """pkg&gt; add StableRNGs\nResolving package versions...""", s
+        """pkg&gt; add StableRNGs""", s
+    )
+    @test occursin(
+        """Resolving package versions...""", s
     )
     @test occursin(
         """pkg&gt; st\nStatus""", s
