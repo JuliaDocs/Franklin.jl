@@ -19,6 +19,9 @@
 </p>
 </h2>
 
+> [!WARNING]  
+> Franklin is depending on Julia internals concerning the world age. These internals changed in Julia 1.12, such that Franklin.jl currently only works up to version Julia 1.11.
+
 Franklin is a simple **static site generator** (SSG) oriented towards technical blogging (code, maths, ...), flexibility and extensibility.
 The base syntax is plain markdown with a few extensions such as the ability to define and use LaTeX-like commands in or outside of maths environments and the possibility to evaluate code blocks on the fly.
 
