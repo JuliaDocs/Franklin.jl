@@ -118,8 +118,6 @@ end
 
         """ |> fd2html
 
-    print(s)
-
     # first block
     @test occursin(
         """pkg&gt; activate --temp""", s
