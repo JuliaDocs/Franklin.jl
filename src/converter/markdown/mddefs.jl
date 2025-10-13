@@ -33,7 +33,7 @@ function process_mddefs(blocks::Vector{OCBlock}, isconfig::Bool,
         filter!(v -> v isa Symbol, vnames)
         for vname in vnames
             key    = String(vname)
-            value  = getproperty(mdl, vname)
+            value  = @invokelatest getglobal(mdl, vname)
             set_var!(curdict, key, value; isglobal=isconfig)
         end
     end
