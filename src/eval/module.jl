@@ -17,8 +17,8 @@ Checks whether a name is a defined module.
 """
 function ismodule(name::String)::Bool
     s = Symbol(name)
-    isdefined(Main, s) || return false
-    typeof(getfield(Main, s)) === Module
+    @invokelatest(isdefined(Main, s)) || return false
+    typeof(@invokelatest(getglobal(Main, s))) === Module
 end
 
 """

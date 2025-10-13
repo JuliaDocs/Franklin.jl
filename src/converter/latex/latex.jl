@@ -34,7 +34,7 @@ function resolve_lxobj(lxo::LxObj, lxdefs::Vector{LxDef};
     # it will be `nothing` in math mode or when defined in utils
     if isnothing(lxd)
         # check if it's defined in Utils and act accordingly
-        if isdefined(Main, utils_symb()) && isdefined(utils_module(), fun)
+        if @invokelatest(isdefined(Main, utils_symb())) && @invokelatest(isdefined(utils_module(), fun))
             raw = Core.eval(utils_module(), :($fun($lxo, $lxdefs)))
             return reprocess(raw, lxdefs)
         else
@@ -49,7 +49,7 @@ function resolve_lxobj(lxo::LxObj, lxdefs::Vector{LxDef};
     # the output of lx_label is direct HTML.
     if (!env && isempty(lxd)) || (env && isempty(lxd.first) && isempty(lxd.second))
         name = getname(lxo)
-        isdefined(Franklin, fun) && return eval(:($fun($lxo, $lxdefs)))
+        @invokelatest(isdefined(Franklin, fun)) && return eval(:($fun($lxo, $lxdefs)))
         return ""
     end
 

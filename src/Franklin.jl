@@ -93,7 +93,7 @@ const FD_ENV = LittleDict(
 
 utils_name()   = "Utils_$(FD_ENV[:UTILS_COUNTER]::Int)"
 utils_symb()   = Symbol(utils_name())
-utils_module() = getproperty(Main, utils_symb())
+utils_module() = @invokelatest getproperty(Main, utils_symb())
 utils_hash()   = nothing
 
 # HACK avoid stackoverflow for pagevar cycle (see juliacomputing issue #891)
