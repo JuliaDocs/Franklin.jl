@@ -128,9 +128,9 @@ function resolve_code_block(
         modname = modulename(locvar(:fd_rpath)::String)
         # >> check if relevant module exists, otherwise create one
         mod = ismodule(modname) ?
-                getfield(Main, Symbol(modname)) :
+                @invokelatest(getglobal(Main, Symbol(modname))) :
                 newmodule(modname)
-        
+
         # >> retrieve the code paths
         cp = form_codepaths(rpath)
         # >> write the code to file
@@ -172,7 +172,7 @@ function resolve_code_block(
                     chunk_ast = nothing
                 end
             end
-        
+
         # NOTE: shell, pkg, and help mode are currently fairly rudimentary
         # and should be considered experimental
 
@@ -239,7 +239,7 @@ function resolve_code_block(
     if any((repl, shell, help, pkg))
         s = repl ? :repl : shell ? :shell : help ? :help : :pkg
         return html_repl_code(repl_code_chunks, s)
-    
+
     elseif shortcut || locvar(:showall)::Bool
         return html_code(code, lang) *
                 reprocess("\\show{$rpath}", [GLOBAL_LXDEFS["\\show"]])

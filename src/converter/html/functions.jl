@@ -8,14 +8,14 @@ function convert_html_fblock(β::HFun)::String
     fun = Symbol("hfun_" * lowercase(β.fname))
     ex  = isempty(β.params) ? :($fun()) : :($fun($β.params))
     # see if a hfun was defined in utils
-    if isdefined(Main, utils_symb()) && isdefined(utils_module(), fun)
+    if @invokelatest(isdefined(Main, utils_symb())) && @invokelatest(isdefined(utils_module(), fun))
         # skip eval if the page is delayed
         isdelayed() && return ""
         res = Core.eval(utils_module(), ex)
         return string(res)
     end
     # see if a hfun was defined internally
-    isdefined(Franklin, fun) && return eval(ex)
+    @invokelatest(isdefined(Franklin, fun)) && return eval(ex)
     # if zero parameters, see if can fill (case: {{vname}})
     if isempty(β.params) &&
         (!isnothing(locvar(β.fname)) || β.fname in UTILS_NAMES)
@@ -53,7 +53,7 @@ function hfun_fill(params::Vector{String})::String
     vname = params[1]
     if length(params) == 1
         if vname in UTILS_NAMES
-            repl = string(getfield(utils_module(), Symbol(vname)))
+            repl = string(@invokelatest(getglobal(utils_module(), Symbol(vname))))
         else
             tmp_repl = locvar(vname)
             if isnothing(tmp_repl)

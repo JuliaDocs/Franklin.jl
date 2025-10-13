@@ -162,11 +162,11 @@ function get_lxdef_ref(lxname::SubString, lxdefs::Vector{LxDef},
     #  3. throw an error
     if isempty(ks)
         # check if defined in utils
-        if isdefined(Main, utils_symb())
+        if @invokelatest isdefined(Main, utils_symb())
             # env def 'env_***'
-            flag = isenv && isdefined(utils_module(), Symbol("env_$(lxname)"))
+            flag = isenv && @invokelatest isdefined(utils_module(), Symbol("env_$(lxname)"))
             # com def 'lx_***'
-            flag |= isdefined(utils_module(), Symbol("lx_$(lxname[2:end])"))
+            flag |= @invokelatest isdefined(utils_module(), Symbol("lx_$(lxname[2:end])"))
             flag && return (Ref(nothing), true)
         end
         # if we're here, and in math mode, let the math engine deal with it

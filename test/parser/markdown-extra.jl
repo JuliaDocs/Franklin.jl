@@ -182,7 +182,11 @@ end
         ---*
         ***_
         """ |> fd2html_td
-    @test isapproxstr(s, "<p>A –-* ***_</p>") # note double -- is transformed -
+    if VERSION <= v"1.12.0"
+        @test isapproxstr(s, "<p>A –-* ***_</p>") # note double -- is transformed -
+    else
+        @test isapproxstr(s, "<p>A –-* ***_</p>\n") # note double -- is transformed -
+    end
 end
 
 # issue 439 and consequences

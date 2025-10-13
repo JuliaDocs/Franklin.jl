@@ -81,7 +81,7 @@ function process_utils()::Nothing
     Base.include(utils_module(), utils)
 
     # keep track of utils names
-    ns = String.(names(utils_module(), all=true))
+    ns = String.(@invokelatest(names(utils_module(), all=true)))
     filter!(n -> n[1] != '#' && n ∉ ("eval", "include", "Utils"), ns)
     empty!(UTILS_NAMES)
     append!(UTILS_NAMES, ns)
