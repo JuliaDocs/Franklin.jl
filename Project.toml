@@ -1,7 +1,7 @@
 name = "Franklin"
 uuid = "713c75ef-9fc9-4b05-94a9-213340da978e"
 authors = ["Thibaut Lienart <tlienart@me.com>"]
-version = "0.10.96"
+version = "0.10.97"
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
