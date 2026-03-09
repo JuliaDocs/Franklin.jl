@@ -1,0 +1,89 @@
+The following 1 direct dependency failed to precompile:
+
+PlotlyJS 
+
+Failed to precompile PlotlyJS [f0f68f2c-4968-5e81-91da-67840de0976a] to "/home/runner/.julia/compiled/v1.12/PlotlyJS/jl_kUPUok".
+ERROR: LoadError: UndefVarError: `Writer` not defined in `JSON`
+Suggestion: check for spelling errors or missing imports.
+Stacktrace:
+  [1] getproperty(x::Module, f::Symbol)
+    @ Base ./Base_compiler.jl:47
+  [2] top-level scope
+    @ ~/.julia/packages/WebIO/8Xm9p/src/syntax.jl:229
+  [3] include(mapexpr::Function, mod::Module, _path::String)
+    @ Base ./Base.jl:307
+  [4] top-level scope
+    @ ~/.julia/packages/WebIO/8Xm9p/src/WebIO.jl:40
+  [5] include(mod::Module, _path::String)
+    @ Base ./Base.jl:306
+  [6] include_package_for_output(pkg::Base.PkgId, input::String, depot_path::Vector{String}, dl_load_path::Vector{String}, load_path::Vector{String}, concrete_deps::Vector{Pair{Base.PkgId, UInt128}}, source::String)
+    @ Base ./loading.jl:3024
+  [7] top-level scope
+    @ stdin:5
+  [8] eval(m::Module, e::Any)
+    @ Core ./boot.jl:489
+  [9] include_string(mapexpr::typeof(identity), mod::Module, code::String, filename::String)
+    @ Base ./loading.jl:2870
+ [10] include_string
+    @ ./loading.jl:2880 [inlined]
+ [11] exec_options(opts::Base.JLOptions)
+    @ Base ./client.jl:315
+ [12] _start()
+    @ Base ./client.jl:550
+in expression starting at /home/runner/.julia/packages/WebIO/8Xm9p/src/syntax.jl:229
+in expression starting at /home/runner/.julia/packages/WebIO/8Xm9p/src/WebIO.jl:1
+in expression starting at stdin:5
+ERROR: LoadError: Failed to precompile WebIO [0f1e0344-ec1d-5b48-a673-e5cf874b6c29] to "/home/runner/.julia/compiled/v1.12/WebIO/jl_NCAmZw".
+Stacktrace:
+  [1] error(s::String)
+    @ Base ./error.jl:44
+  [2] compilecache(pkg::Base.PkgId, path::String, internal_stderr::IO, internal_stdout::IO, keep_loaded_modules::Bool; flags::Cmd, cacheflags::Base.CacheFlags, reasons::Dict{String, Int64}, loadable_exts::Nothing)
+    @ Base ./loading.jl:3311
+  [3] (::Base.var"#__require_prelocked##0#__require_prelocked##1"{Base.PkgId, String, Dict{String, Int64}})()
+    @ Base ./loading.jl:2679
+  [4] mkpidlock(f::Base.var"#__require_prelocked##0#__require_prelocked##1"{Base.PkgId, String, Dict{String, Int64}}, at::String, pid::Int32; kwopts::@Kwargs{stale_age::Int64, wait::Bool})
+    @ FileWatching.Pidfile /opt/hostedtoolcache/julia/1.12.5/x64/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:93
+  [5] #mkpidlock#7
+    @ /opt/hostedtoolcache/julia/1.12.5/x64/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:88 [inlined]
+  [6] trymkpidlock(::Function, ::Vararg{Any}; kwargs::@Kwargs{stale_age::Int64})
+    @ FileWatching.Pidfile /opt/hostedtoolcache/julia/1.12.5/x64/share/julia/stdlib/v1.12/FileWatching/src/pidfile.jl:114
+  [7] #invokelatest_gr#232
+    @ ./reflection.jl:1297 [inlined]
+  [8] invokelatest_gr
+    @ ./reflection.jl:1289 [inlined]
+  [9] maybe_cachefile_lock(f::Base.var"#__require_prelocked##0#__require_prelocked##1"{Base.PkgId, String, Dict{String, Int64}}, pkg::Base.PkgId, srcpath::String; stale_age::Int64)
+    @ Base ./loading.jl:3882
+ [10] maybe_cachefile_lock
+    @ ./loading.jl:3879 [inlined]
+ [11] __require_prelocked(pkg::Base.PkgId, env::String)
+    @ Base ./loading.jl:2665
+ [12] _require_prelocked(uuidkey::Base.PkgId, env::String)
+    @ Base ./loading.jl:2493
+ [13] macro expansion
+    @ ./loading.jl:2421 [inlined]
+ [14] macro expansion
+    @ ./lock.jl:376 [inlined]
+ [15] __require(into::Module, mod::Symbol)
+    @ Base ./loading.jl:2386
+ [16] require(into::Module, mod::Symbol)
+    @ Base ./loading.jl:2362
+ [17] top-level scope
+    @ ~/.julia/packages/PlotlyJS/60kan/src/PlotlyJS.jl:18
+ [18] include(mod::Module, _path::String)
+    @ Base ./Base.jl:306
+ [19] include_package_for_output(pkg::Base.PkgId, input::String, depot_path::Vector{String}, dl_load_path::Vector{String}, load_path::Vector{String}, concrete_deps::Vector{Pair{Base.PkgId, UInt128}}, source::Nothing)
+    @ Base ./loading.jl:3024
+ [20] top-level scope
+    @ stdin:5
+ [21] eval(m::Module, e::Any)
+    @ Core ./boot.jl:489
+ [22] include_string(mapexpr::typeof(identity), mod::Module, code::String, filename::String)
+    @ Base ./loading.jl:2870
+ [23] include_string
+    @ ./loading.jl:2880 [inlined]
+ [24] exec_options(opts::Base.JLOptions)
+    @ Base ./client.jl:315
+ [25] _start()
+    @ Base ./client.jl:550
+in expression starting at /home/runner/.julia/packages/PlotlyJS/60kan/src/PlotlyJS.jl:1
+in expression starting at stdin:
