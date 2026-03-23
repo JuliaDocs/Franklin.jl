@@ -162,6 +162,13 @@ function process_file_err(case::Symbol, fpair::Pair{String, String},
         cond_add && add_sitemap_item(html=true)
         proc_html = convert_html(raw_html) |> postprocess_page
         write(outp, proc_html)
+        # RSS, robots disallow, and on_write for HTML pages — consistent
+        # with markdown page processing in write_page.jl (see #909)
+        cond_rss = globvar(:generate_rss)::Bool && FD_ENV[:FULL_PASS]::Bool &&
+                   !isempty(locvar(:rss_description)::String)
+        cond_rss && add_rss_item()
+        locvar(:robots_disallow_this_page)::Bool && add_disallow_item()
+        (FD_ENV[:ON_WRITE]::Function)(proc_html, LOCAL_VARS)
     else # case in (:other, :infra)
         # NOTE: some processing may be added here later on (e.g. parsing of
         # CSS files). Only copy again if necessary (file is not there or

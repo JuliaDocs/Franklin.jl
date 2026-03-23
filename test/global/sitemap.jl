@@ -6,12 +6,13 @@
     @test occursin(raw"""
         <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">""", fc)
-    # check pages
+    # check pages (default: index.html stripped from URLs)
     for pg in ("", "menu1", "menu2", "menu3")
-        pgg = joinpath(pg, "index.html")
+        slug = isempty(pg) ? "" : "$pg/"
         @test occursin("""
-            <loc>https://tlienart.github.io/FranklinTemplates.jl/$pgg</loc>""", fc)
+            <loc>https://tlienart.github.io/FranklinTemplates.jl/$slug</loc>""", fc)
     end
+    @test !occursin("index.html", fc)
 end
 
 @testset "Robots.txt gen" begin
