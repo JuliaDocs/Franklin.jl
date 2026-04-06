@@ -3,31 +3,31 @@
 
 <url>
     <loc>foo/index.html</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>weave/index.html</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>wgl/index.html</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>mathjax/index.html</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>index/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>

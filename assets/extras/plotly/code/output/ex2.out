@@ -2,7 +2,7 @@ The following 1 direct dependency failed to precompile:
 
 PlotlyJS 
 
-Failed to precompile PlotlyJS [f0f68f2c-4968-5e81-91da-67840de0976a] to "/home/runner/.julia/compiled/v1.12/PlotlyJS/jl_kUPUok".
+Failed to precompile PlotlyJS [f0f68f2c-4968-5e81-91da-67840de0976a] to "/home/runner/.julia/compiled/v1.12/PlotlyJS/jl_LW0DdC".
 ERROR: LoadError: UndefVarError: `Writer` not defined in `JSON`
 Suggestion: check for spelling errors or missing imports.
 Stacktrace:
@@ -33,7 +33,7 @@ Stacktrace:
 in expression starting at /home/runner/.julia/packages/WebIO/8Xm9p/src/syntax.jl:229
 in expression starting at /home/runner/.julia/packages/WebIO/8Xm9p/src/WebIO.jl:1
 in expression starting at stdin:5
-ERROR: LoadError: Failed to precompile WebIO [0f1e0344-ec1d-5b48-a673-e5cf874b6c29] to "/home/runner/.julia/compiled/v1.12/WebIO/jl_NCAmZw".
+ERROR: LoadError: Failed to precompile WebIO [0f1e0344-ec1d-5b48-a673-e5cf874b6c29] to "/home/runner/.julia/compiled/v1.12/WebIO/jl_nemech".
 Stacktrace:
   [1] error(s::String)
     @ Base ./error.jl:44

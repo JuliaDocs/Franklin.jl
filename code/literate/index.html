@@ -149,29 +149,29 @@
 <p>For instance you might prefer:</p>
 <pre><code class="language-julia">x &#61; randn&#40;10&#41;
 x&#91;1:3&#93;</code></pre><pre><code class="plaintext code-output">3-element Vector{Float64}:
-  1.4634059326902498
- -0.9042151737815578
- -0.775583806980462</code></pre>
+ -0.5405536745736805
+  1.1263775564129932
+ -0.5778059420139574</code></pre>
 <p>to just</p>
 <pre><code class="language-julia">x &#61; randn&#40;10&#41;</code></pre><pre><code class="plaintext code-output">10-element Vector{Float64}:
- -0.6807354901598248
-  0.3989410722622043
-  0.2827211705816512
- -1.634296032730031
- -0.28224298164251316
-  0.05969782957649163
- -0.426326680728874
- -1.216440062625098
- -0.2050361785458952
-  0.05626587699982328</code></pre>
+ -0.08974028724744137
+  1.9156493593753654
+  0.36417538780172903
+  0.9661110052029948
+  0.23676043453149587
+ -0.6406813142519365
+  0.8785008178373543
+ -0.7186725100593685
+ -1.4193645674783877
+  1.0292189317151583</code></pre>
 <p>You can also use <code>@show</code> or <code>println</code> to show specific things beyond the last line</p>
 <pre><code class="language-julia">x &#61; rand&#40;10&#41;
 println&#40;sum&#40;x&#41;&#41;
-y &#61; 5</code></pre><pre><code class="plaintext code-output">3.5605944374971625
+y &#61; 5</code></pre><pre><code class="plaintext code-output">5.97581409209504
 5</code></pre>
 <p>if the last line is a <code>@show</code> or <code>print</code> then only that is shown:</p>
 <pre><code class="language-julia">x &#61; randn&#40;10&#41;
-@show x&#91;1&#93;</code></pre><pre><code class="plaintext code-output">x[1] = -0.26973976487192924
+@show x&#91;1&#93;</code></pre><pre><code class="plaintext code-output">x[1] = 0.21381981152436488
 </code></pre>
 <p>The <code>literate_mds &#61; true</code> mode adds support for using literal markdown strings, <code>md&quot;&quot;&quot; ... &quot;&quot;&quot;</code>, for the markdown sections, a feature introduced in <a href="https://fredrikekre.github.io/Literate.jl/v2/fileformat/#Multiline-comments-and-markdown-strings">Literate v2.9</a>. For example</p>
 <pre><code class="language-md">md&quot;&quot;&quot;
@@ -218,7 +218,7 @@ The equation &#36; \exp&#40;i\pi&#41; &#43; 1 \quad &#61; \quad 0 &#36; is prove
  </p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; Thibaut Lienart. Last modified: March 09, 2026. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
+    &copy; Thibaut Lienart. Last modified: April 06, 2026. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
