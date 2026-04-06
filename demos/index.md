@@ -7,12 +7,12 @@ hasmath = true
 
 # Franklin Demos
 
-\style{text-align:center;width:100%;display:inline-block;font-variant-caps:small-caps}{[**Click here to see the source**](https://github.com/tlienart/Franklin.jl/tree/master/demos)}
+\style{text-align:center;width:100%;display:inline-block;font-variant-caps:small-caps}{[**Click here to see the source**](https://github.com/JuliaDocs/Franklin.jl/tree/master/demos)}
 
 This website is meant to be a quick way to show how to do stuff that people ask (or that I thought would be a nice demo), it will complement the [official documentation](https://franklinjl.org/).
 
 It's not meant to be beautiful, rather just show how to get specific stuff done.
-If one block answers one of your question, make sure to check [the source](https://github.com/tlienart/Franklin.jl/tree/master/demos/index.md) to see how it was done.
+If one block answers one of your question, make sure to check [the source](https://github.com/JuliaDocs/Franklin.jl/tree/master/demos/index.md) to see how it was done.
 The ordering is reverse chronological but just use the table of contents to guide you to whatever you might want to explore.
 
 **Note**: an important philosophy here is that if you can write a Julia function that would produce the HTML you want, then write that function and let Franklin call it.
@@ -39,7 +39,7 @@ will be rendered as:
 
 {{ render_table }}
 
-This done via a `hfun_render_table` which can be found in [`utils.jl`](https://github.com/tlienart/Franklin.jl/blob/master/demos/utils.jl).
+This done via a `hfun_render_table` which can be found in [`utils.jl`](https://github.com/JuliaDocs/Franklin.jl/blob/master/demos/utils.jl).
 
 
 
@@ -194,8 +194,8 @@ Here's an example with the insertion of the content of a file `foo/content.md`; 
 
 {{insertmd foo/content.md}}
 
-You can look at [`utils.jl`](https://github.com/tlienart/Franklin.jl/blob/master/demos/utils.jl) for the definition of the `hfun` (same as above), at [`index.md`](https://github.com/tlienart/Franklin.jl/blob/master/demos/index.md) to see how it's called and at [`foo/content.md`](https://github.com/tlienart/Franklin.jl/blob/master/demos/foo/content.md) for the content file.
-Finally you can also check out the [`config.md`](https://github.com/tlienart/Franklin.jl/blob/master/demos/config.md) file to see how the content page is ignored.
+You can look at [`utils.jl`](https://github.com/JuliaDocs/Franklin.jl/blob/master/demos/utils.jl) for the definition of the `hfun` (same as above), at [`index.md`](https://github.com/JuliaDocs/Franklin.jl/blob/master/demos/index.md) to see how it's called and at [`foo/content.md`](https://github.com/JuliaDocs/Franklin.jl/blob/master/demos/foo/content.md) for the content file.
+Finally you can also check out the [`config.md`](https://github.com/JuliaDocs/Franklin.jl/blob/master/demos/config.md) file to see how the content page is ignored.
 
 ## (012) Dates
 
@@ -240,15 +240,15 @@ It's fairly easy to add a "copy" button to your code blocks using  a tool like [
 In fact on this demo page, as you can see, there is a copy button on all code blocks.
 The steps to  reproduce  this are:
 
-* copy the [`clipboard.min.js`](https://github.com/tlienart/Franklin.jl/blob/master/demos/_libs/clipboard.min.js) to `/libs/clipboard.min.js` (_note that this is an old version of the library, `1.4` or something, if you take  the most recent version, you will have to adapt the script_)
+* copy the [`clipboard.min.js`](https://github.com/JuliaDocs/Franklin.jl/blob/master/demos/_libs/clipboard.min.js) to `/libs/clipboard.min.js` (_note that this is an old version of the library, `1.4` or something, if you take  the most recent version, you will have to adapt the script_)
 * load that in `_layout/head.html` adding something like
 
 ```html
 <script src="/libs/clipboard.min.js"></script>
 ```
 
-* add Javascript in the `_layout/foot.html`,  something [like this](https://github.com/tlienart/Franklin.jl/blob/master/demos/_layout/foot_clipboard.html)
-* adjust the CSS, for instance [something like this](https://github.com/tlienart/Franklin.jl/blob/0276b1afb054017ff7e81bc7d083021a867a4b92/demos/_css/extras.css#L37-L61)
+* add Javascript in the `_layout/foot.html`,  something [like this](https://github.com/JuliaDocs/Franklin.jl/blob/master/demos/_layout/foot_clipboard.html)
+* adjust the CSS, for instance [something like this](https://github.com/JuliaDocs/Franklin.jl/blob/0276b1afb054017ff7e81bc7d083021a867a4b92/demos/_css/extras.css#L37-L61)
 
 and that's it 🏁.
 
@@ -481,7 +481,7 @@ Now observe that
 
 Latexify produces a LaTeX string which should basically be passed to KaTeX. To do that you need to recuperate the output, extract the string and pass it into a maths block.
 
-Here there's a bug with `\begin{equation}` in Franklin (issue [#584](https://github.com/tlienart/Franklin.jl/issues/584)) which is why I'm replacing those with `$$` but it should be fixed in the near future so that you wouldn't have to use these two "replace" lines:
+Here there's a bug with `\begin{equation}` in Franklin (issue [#584](https://github.com/JuliaDocs/Franklin.jl/issues/584)) which is why I'm replacing those with `$$` but it should be fixed in the near future so that you wouldn't have to use these two "replace" lines:
 
 ```julia:lx1
 using Latexify
@@ -494,7 +494,7 @@ println(ls.s) # hide
 
 ## (003) styling of code output blocks
 
-At the moment (August 2020) no particular class is added on an output (see [#531](https://github.com/tlienart/Franklin.jl/issues/531)); you can still do something similar by adding a `@@code-output` (or whatever appropriate name) around the command that extracts the output and specify this in your css (see `extras.css`):
+At the moment (August 2020) no particular class is added on an output (see [#531](https://github.com/JuliaDocs/Franklin.jl/issues/531)); you can still do something similar by adding a `@@code-output` (or whatever appropriate name) around the command that extracts the output and specify this in your css (see `extras.css`):
 
 ```julia:cos1
 x = 7

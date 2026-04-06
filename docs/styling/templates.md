@@ -14,11 +14,11 @@ reviewed: 22/12/19
 
 \lineskip
 
-The pre-defined templates that are currently available in Franklin with the `newsite` function can be viewed ~~~<a href="https://tlienart.github.io/FranklinTemplates.jl/" target="_blank" rel="noopener noreferrer">here</a>~~~ (_opens in a new tab_).
+The pre-defined templates that are currently available in Franklin with the `newsite` function can be viewed ~~~<a href="https://juliadocs.org/FranklinTemplates.jl/" target="_blank" rel="noopener noreferrer">here</a>~~~ (_opens in a new tab_).
 
 ## Adapting a theme to Franklin
 
-\note{If you end up doing this, please consider making a PR to [FranklinTemplates](https://github.com/tlienart/FranklinTemplates.jl)!}
+\note{If you end up doing this, please consider making a PR to [FranklinTemplates](https://github.com/JuliaDocs/FranklinTemplates.jl)!}
 
 On this page, I'll take [Jemdoc's website layout](http://jemdoc.jaboc.net/) and show how it can be adapted to be a working Franklin template.
 This will hopefully also show you how to adapt/modify an existing template.
@@ -233,7 +233,7 @@ By default `page_foot` looks like
 ```html
 <div class="page-foot">
   <div class="copyright">
-    &copy; {{ fill author }}. Last modified: {{ fill fd_mtime }}. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+    &copy; {{ fill author }}. Last modified: {{ fill fd_mtime }}. Website built with <a href="https://github.com/JuliaDocs/Franklin.jl">Franklin.jl</a>.
   </div>
 </div>
 ```
@@ -244,4 +244,4 @@ It should be fairly straightforward to adapt that to your needs.
 
 Let's say you've built your own template and are pretty happy with the result and you'd like to share it with other users, great, thanks!
 
-Please follow [these instructions](https://github.com/tlienart/FranklinTemplates.jl#fixingadding-a-template).
+Please follow [these instructions](https://github.com/JuliaDocs/FranklinTemplates.jl#fixingadding-a-template).

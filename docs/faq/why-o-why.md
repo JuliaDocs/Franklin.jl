@@ -17,7 +17,7 @@ I liked that Jemdoc+Mathjax was simple to use and didn't require a lot of web-de
 That's how I got the idea of doing something similar in Julia, hopefully improving on the few things I didn't like such as the lack of support for live-rendering preview or the speed of page generation.
 
 That being said, if you just want a blogging generator mostly for text and pictures, then Franklin may not be the tool for you.
-If you want to host a technical blog with maths, an code blocks, and would like some easy and reproducible control over elements, then Franklin could help you (feel free to [open an issue](https://github.com/tlienart/Franklin.jl/issues/new) to see if Franklin is right for you).
+If you want to host a technical blog with maths, an code blocks, and would like some easy and reproducible control over elements, then Franklin could help you (feel free to [open an issue](https://github.com/JuliaDocs/Franklin.jl/issues/new) to see if Franklin is right for you).
 
 ### Why not Pandoc?
 

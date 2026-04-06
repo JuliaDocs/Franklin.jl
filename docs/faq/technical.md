@@ -3,7 +3,7 @@
 
 # FAQ - Technical
 
-If you have a question that you couldn't find an answer to easily, don't hesitate to [open an issue](https://github.com/tlienart/Franklin.jl/issues/new) on GitHub, it will help me make this section more complete!
+If you have a question that you couldn't find an answer to easily, don't hesitate to [open an issue](https://github.com/JuliaDocs/Franklin.jl/issues/new) on GitHub, it will help me make this section more complete!
 
 \toc
 
@@ -11,7 +11,7 @@ If you have a question that you couldn't find an answer to easily, don't hesitat
 
 ### Can you style footnote text?
 
-**Reference**: [issue 243](https://github.com/tlienart/Franklin.jl/issues/243), **more on this**: [styling](/styling/classes/).
+**Reference**: [issue 243](https://github.com/JuliaDocs/Franklin.jl/issues/243), **more on this**: [styling](/styling/classes/).
 
 For reference basically, a footnote is inserted as
 
@@ -97,7 +97,7 @@ like this: \eqref{eqabc}.
 
 ### How to use loops for templating?
 
-**Reference**: [issue 251](https://github.com/tlienart/Franklin.jl/issues/251), **more on this**: [code tricks](/code/eval-tricks/).
+**Reference**: [issue 251](https://github.com/JuliaDocs/Franklin.jl/issues/251), **more on this**: [code tricks](/code/eval-tricks/).
 
 Since you can show the output of any Julia code block (and interpret that output as Franklin markdown), you can use this to help with templating.
 For instance:
@@ -128,6 +128,6 @@ Generates
 
 ### How to insert Plotly plots?
 
-**Reference**: [issue 322](https://github.com/tlienart/Franklin.jl/issues/322).
+**Reference**: [issue 322](https://github.com/JuliaDocs/Franklin.jl/issues/322).
 
 See [this tutorial](/extras/plotly/) for a way to do this.

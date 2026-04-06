@@ -22,7 +22,7 @@ julia> newsite("TestWebsite"; template="vela")
 → Use serve() from Franklin to see the website in your browser.
 ```
 
-There are a number of [simple templates](https://tlienart.github.io/FranklinTemplates.jl/) you can choose from and tweak.
+There are a number of [simple templates](https://juliadocs.org/FranklinTemplates.jl/) you can choose from and tweak.
 
 \note{The templates are meant to be used as _starting points_ and will likely require some fixes to match what you want. Your help to make them better is very welcome.}
 

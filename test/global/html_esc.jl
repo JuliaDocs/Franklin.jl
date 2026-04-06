@@ -1,4 +1,4 @@
-# See https://github.com/tlienart/Franklin.jl/issues/326
+# See https://github.com/JuliaDocs/Franklin.jl/issues/326
 
 @testset "Issue 326" begin
     h1 = "<div class=\"hello\">Blah</div>"

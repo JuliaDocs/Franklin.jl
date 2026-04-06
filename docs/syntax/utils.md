@@ -122,7 +122,7 @@ end
 
 \note{The same comment as earlier, you can see that the way the function is called depends on the name of the function definition `lx_foo` ⟶ `foo`. Make sure that the name does not clash with one of the pre-defined commands (`label`, `style`, ...).}
 
-\note{For the moment, this only works with a single brace see [issue 518](https://github.com/tlienart/Franklin.jl/issues/518) for comments.}
+\note{For the moment, this only works with a single brace see [issue 518](https://github.com/JuliaDocs/Franklin.jl/issues/518) for comments.}
 
 ### Why it was a dumb example
 
