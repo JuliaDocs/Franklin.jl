@@ -1,7 +1,7 @@
 name = "Franklin"
 uuid = "713c75ef-9fc9-4b05-94a9-213340da978e"
-authors = ["Thibaut Lienart <tlienart@me.com>"]
 version = "0.10.97"
+authors = ["Thibaut Lienart <tlienart@me.com>"]
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
@@ -22,6 +22,7 @@ Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
 
 [compat]
+Dates = "1"
 DelimitedFiles = "1"
 DocStringExtensions = "0.8, 0.9"
 ExprTools = "0.1"
@@ -29,16 +30,15 @@ FranklinTemplates = "0.10"
 HTTP = "1"
 Literate = "2"
 LiveServer = "1"
-NodeJS = "2"
-OrderedCollections = "1"
-TOML = "1"
-julia = "1.10"
-Dates = "1"
 Logging = "1"
 Markdown = "1"
+NodeJS = "2"
+OrderedCollections = "1, 2"
 Pkg = "1"
 REPL = "1"
 Random = "1"
+TOML = "1"
+julia = "1.10"
 
 [extras]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
