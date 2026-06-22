@@ -217,6 +217,18 @@ end
 const _htmlesc_to = values(_htmlescape_chars) |> collect
 
 """
+    htmlesc(s)
+
+Escape the HTML special characters in `s` according to [`_htmlescape_chars`](@ref).
+
+This vendors the escaping Franklin relies on rather than calling `Markdown.htmlesc`
+so that it stays consistent with [`html_unescape`](@ref) and [`is_html_escaped`](@ref)
+(which both depend on the exact entity set) regardless of changes to the `Markdown`
+stdlib across Julia versions.
+"""
+htmlesc(s::AbstractString) = replace(s, _htmlescape_chars...)
+
+"""
     is_html_escaped
 
 Internal function to check if some html code has been escaped.
