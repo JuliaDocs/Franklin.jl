@@ -111,9 +111,9 @@
         <div class="main-header">
           <a name="pagetop"></a>
 
-          <a id="github" href="https://github.com/tlienart/Franklin.jl/blob/master/docs/code/literate.md">Page source</a>
+          <a id="github" href="https://github.com/JuliaDocs/Franklin.jl/blob/master/docs/code/literate.md">Page source</a>
 		  <span style="width:30px; text-align: center;color:lightgray;">|</span>
-		  <a id="github" href="https://github.com/tlienart/Franklin.jl">GitHub Repository</a>
+		  <a id="github" href="https://github.com/JuliaDocs/Franklin.jl">GitHub Repository</a>
         </div>
 
 <!-- Content appended here (in class franklin-content) -->
@@ -149,29 +149,29 @@
 <p>For instance you might prefer:</p>
 <pre><code class="language-julia">x &#61; randn&#40;10&#41;
 x&#91;1:3&#93;</code></pre><pre><code class="plaintext code-output">3-element Vector{Float64}:
-  0.6717790916412507
- -1.5016680628421621
-  1.3959480776357578</code></pre>
+  0.9095079623559629
+  0.24796162468040683
+ -0.16403407877044449</code></pre>
 <p>to just</p>
 <pre><code class="language-julia">x &#61; randn&#40;10&#41;</code></pre><pre><code class="plaintext code-output">10-element Vector{Float64}:
-  2.3248035411890986
- -0.7239623653043873
-  1.7036383146949245
- -2.1545432111631664
-  1.39830098166378
- -0.40106042451151175
-  1.167470354610101
- -0.4182903020148371
-  0.25308851669092663
- -0.15384308901155844</code></pre>
+ -0.8084288208877944
+  0.018550161115742685
+  0.5196937659003162
+  0.1791053120141282
+  0.8871372796506296
+ -1.2713617929006034
+ -0.9784010508448849
+ -0.903805535093453
+  0.935488603555608
+ -0.26558511256667394</code></pre>
 <p>You can also use <code>@show</code> or <code>println</code> to show specific things beyond the last line</p>
 <pre><code class="language-julia">x &#61; rand&#40;10&#41;
 println&#40;sum&#40;x&#41;&#41;
-y &#61; 5</code></pre><pre><code class="plaintext code-output">4.579491752468591
+y &#61; 5</code></pre><pre><code class="plaintext code-output">3.698789820950198
 5</code></pre>
 <p>if the last line is a <code>@show</code> or <code>print</code> then only that is shown:</p>
 <pre><code class="language-julia">x &#61; randn&#40;10&#41;
-@show x&#91;1&#93;</code></pre><pre><code class="plaintext code-output">x[1] = -0.14782875897716044
+@show x&#91;1&#93;</code></pre><pre><code class="plaintext code-output">x[1] = 0.5771229244559697
 </code></pre>
 <p>The <code>literate_mds &#61; true</code> mode adds support for using literal markdown strings, <code>md&quot;&quot;&quot; ... &quot;&quot;&quot;</code>, for the markdown sections, a feature introduced in <a href="https://fredrikekre.github.io/Literate.jl/v2/fileformat/#Multiline-comments-and-markdown-strings">Literate v2.9</a>. For example</p>
 <pre><code class="language-md">md&quot;&quot;&quot;
@@ -218,7 +218,7 @@ The equation &#36; \exp&#40;i\pi&#41; &#43; 1 \quad &#61; \quad 0 &#36; is prove
  </p>
 <div class="page-foot">
   <div class="copyright">
-    &copy; Thibaut Lienart. Last modified: June 22, 2026. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
+    &copy; Thibaut Lienart. Last modified: June 22, 2026. Website built with <a href="https://github.com/JuliaDocs/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.
   </div>
 </div>
 </div><!-- CONTENT ENDS HERE -->
