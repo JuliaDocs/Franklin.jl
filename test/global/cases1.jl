@@ -6,7 +6,7 @@
         """
     @test isapproxstr(st |> conv,
             """<p>
-            Then hello auth1, goodbye auth1, auth2$(Markdown.htmlesc("!")).
+            Then hello auth1, goodbye auth1, auth2$(F.htmlesc("!")).
             </p>""")
 end
 
@@ -124,11 +124,16 @@ end
         * \com{aaa} tt
         * ss \com{bbb}
         """
-    @test isapproxstr(st |> conv,
+    @test isapproxstr(st |> conv, VERSION < v"1.14.0-" ?
             """<p>blah †a†</p>
             <ul>
                <li><p>†aaa† tt</p></li>
                <li><p>ss †bbb†</p></li>
+            </ul>""" :
+            """<p>blah †a†</p>
+            <ul>
+               <li>†aaa† tt</li>
+               <li>ss †bbb†</li>
             </ul>""")
 end
 
