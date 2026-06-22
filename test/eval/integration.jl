@@ -1,4 +1,4 @@
-# see also https://github.com/tlienart/Franklin.jl/issues/330
+# see also https://github.com/JuliaDocs/Franklin.jl/issues/330
 @testset "locvar" begin
     s = raw"""
         @def va = 5

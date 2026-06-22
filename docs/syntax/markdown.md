@@ -196,7 +196,7 @@ If you do this, you might want to slightly modify it to ensure that the Julia-re
 hljs.registerLanguage("julia-repl",function(a){return{c:[{cN:"meta",b:/^julia>/,r:10,starts:{e:/^(?![ ]{6})/,sL:"julia"}},{cN:"metas",b:/^shell>/,r:10,starts:{e:/^(?![ ]{6})/,sL:"bash"}},{cN:"metap",b:/^\(.*\)\spkg>/,r:10,starts:{e:/^(?![ ]{6})/,sL:"julia"}}]}});
 ```
 
-(see also [the README](https://github.com/tlienart/FranklinTemplates.jl#notes) of FranklinTemplates).
+(see also [the README](https://github.com/JuliaDocs/FranklinTemplates.jl#notes) of FranklinTemplates).
 
 ### Evaluated code blocks
 

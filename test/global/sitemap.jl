@@ -10,7 +10,7 @@
     for pg in ("", "menu1", "menu2", "menu3")
         slug = isempty(pg) ? "" : "$pg/"
         @test occursin("""
-            <loc>https://tlienart.github.io/FranklinTemplates.jl/$slug</loc>""", fc)
+            <loc>https://juliadocs.org/FranklinTemplates.jl/$slug</loc>""", fc)
     end
     @test !occursin("index.html", fc)
 end
@@ -21,5 +21,5 @@ end
     fc = prod(readlines(f, keep=true))
 
     @test occursin(raw"""
-        Sitemap: https://tlienart.github.io/FranklinTemplates.jl/sitemap.xml""", fc)
+        Sitemap: https://juliadocs.org/FranklinTemplates.jl/sitemap.xml""", fc)
 end

@@ -52,7 +52,7 @@ end
     @test isapproxstr(fhs, "AEF")
 end
 
-# https://github.com/tlienart/Franklin.jl/issues/731
+# https://github.com/JuliaDocs/Franklin.jl/issues/731
 @testset "hfun strings" begin
     a = Franklin.split_hfun_parameters(strip("""
         "Hello to you" my "julia friends" and "all the others"
