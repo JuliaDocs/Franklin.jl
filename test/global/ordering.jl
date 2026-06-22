@@ -100,7 +100,7 @@ end
             -->
         C
         """
-    @test isapproxstr(st |> seval, raw"""
+    @test isapproxstr(st |> seval, VERSION < v"1.14.0-" ? raw"""
             <p>0</p>
             <ul>
               <li><p>A</p>
@@ -108,6 +108,14 @@ end
                   <li><p>B &#91;❗️<em>ongoing</em> &#93;</p></li>
                 </ul>
               </li>
+            </ul>
+            <p>C</p>
+            """ : raw"""
+            <p>0</p>
+            <ul>
+              <li>A<ul>
+                <li>B &#91;❗️<em>ongoing</em> &#93;</li>
+                </ul></li>
             </ul>
             <p>C</p>
             """)

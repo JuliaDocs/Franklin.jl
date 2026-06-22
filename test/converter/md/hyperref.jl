@@ -31,6 +31,24 @@
 
     h = F.convert_html(m)
 
+    # newer Markdown renders tight list items without wrapping <p> tags
+    bib = VERSION < v"1.14.0-" ? """
+        <ul>
+          <li><p><a id="$h2" class=\"anchor\"></a>
+            <strong>Amari</strong> and <strong>Douglas</strong>: <em>Why Natural Gradient</em>, 1998.</p>
+          </li>
+          <li><p><a id="$h3" class=\"anchor\"></a>
+            <strong>Bardenet</strong>, <strong>Doucet</strong> and <strong>Holmes</strong>: <em>On Markov Chain Monte Carlo Methods for Tall Data</em>, 2017.</p>
+          </li>
+        </ul>
+        """ : """
+        <ul>
+          <li><a id="$h2" class=\"anchor\"></a>
+            <strong>Amari</strong> and <strong>Douglas</strong>: <em>Why Natural Gradient</em>, 1998.</li>
+          <li><a id="$h3" class=\"anchor\"></a>
+            <strong>Bardenet</strong>, <strong>Doucet</strong> and <strong>Holmes</strong>: <em>On Markov Chain Monte Carlo Methods for Tall Data</em>, 2017.</li>
+        </ul>
+        """
     @test isapproxstr(h, """
         <p>
           Some string
@@ -50,14 +68,7 @@
         <p>
           Then maybe some text etc.
         </p>
-        <ul>
-          <li><p><a id="$h2" class=\"anchor\"></a>
-            <strong>Amari</strong> and <strong>Douglas</strong>: <em>Why Natural Gradient</em>, 1998.</p>
-          </li>
-          <li><p><a id="$h3" class=\"anchor\"></a>
-            <strong>Bardenet</strong>, <strong>Doucet</strong> and <strong>Holmes</strong>: <em>On Markov Chain Monte Carlo Methods for Tall Data</em>, 2017.</p>
-          </li>
-        </ul>
+        $bib
         """)
 end
 

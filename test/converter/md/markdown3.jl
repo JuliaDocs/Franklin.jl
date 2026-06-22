@@ -157,12 +157,19 @@ end
             1. you can show nice maths (via KaTeX)
             """
 
-    @test isapproxstr(st |> seval, raw"""
+    @test isapproxstr(st |> seval, VERSION < v"1.14.0-" ? raw"""
                     <p>Essentially three things are imitated from LaTeX</p>
                     <ol>
                         <li><p>you can introduce definitions using <code>\newcommand</code></p></li>
                         <li><p>you can use hyper-references with <code>\eqref</code>, <code>\cite</code>, ...</p></li>
                         <li><p>you can show nice maths &#40;via KaTeX&#41;</p></li>
+                    </ol>
+                    """ : raw"""
+                    <p>Essentially three things are imitated from LaTeX</p>
+                    <ol>
+                        <li>you can introduce definitions using <code>\newcommand</code></li>
+                        <li>you can use hyper-references with <code>\eqref</code>, <code>\cite</code>, ...</li>
+                        <li>you can show nice maths (via KaTeX)</li>
                     </ol>
                     """)
 end
@@ -260,7 +267,7 @@ end
             + bloh
         end
         """
-    @test isapproxstr(st |> seval, """
+    @test isapproxstr(st |> seval, VERSION < v"1.14.0-" ? """
                         <p>A <code>single</code> and </p>
                         <pre><code class="language-python">blah</code></pre>
                         <p>and</p>
@@ -275,6 +282,19 @@ end
                         </li>
                         </ul>
                         </li>
+                        </ul>
+                        <p>end</p>
+                        """ : """
+                        <p>A <code>single</code> and </p>
+                        <pre><code class="language-python">blah</code></pre>
+                        <p>and</p>
+                        <pre><code class="language-julia">$(F.htmlesc("""a = 1+1"""))</code></pre>
+                        <p>then</p>
+                        <ul>
+                        <li>blah<ul>
+                        <li>blih</li>
+                        <li>bloh</li>
+                        </ul></li>
                         </ul>
                         <p>end</p>
                         """)

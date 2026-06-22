@@ -4,7 +4,6 @@ using FranklinTemplates
 using FranklinTemplates: filecmp
 
 using Markdown
-using Markdown: htmlesc
 using Dates
 using DelimitedFiles: readdlm
 using OrderedCollections

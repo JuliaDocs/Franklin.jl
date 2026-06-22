@@ -63,11 +63,13 @@ end
     ```
     """ |> fd2html
 
+    # newer Markdown keeps the trailing newline inside the code block
+    nl = VERSION < v"1.14.0-" ? "" : "\n"
     @test occursin("""
         <pre><code class="language-julia-repl julia-repl-help">help?> im
         </code></pre>
         <div class="julia-help">
-        <pre><code class="language-julia">im</code></pre>
+        <pre><code class="language-julia">im$(nl)</code></pre>
         <p>The imaginary unit.</p>
         """, s)
 end

@@ -71,7 +71,7 @@ end
     * `C`
     E
     """ |> fd2html
-    @test h // """
+    @test h // (VERSION < v"1.14.0-" ? """
         <p>A</p>
         <ul>
         <li><p>B</p>
@@ -79,7 +79,13 @@ end
         <li><p><code>C</code></p>
         </li>
         </ul>
-        <p>E</p>"""
+        <p>E</p>""" : """
+        <p>A</p>
+        <ul>
+        <li>B</li>
+        <li><code>C</code></li>
+        </ul>
+        <p>E</p>""")
 end
 
 

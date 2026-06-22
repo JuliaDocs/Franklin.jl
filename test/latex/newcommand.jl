@@ -191,7 +191,8 @@ end
         * $f$ is a function
         * a last element
         """ |> fd2html
-    @test isapproxstr(st, raw"""
+    # newer Markdown renders tight list items without wrapping <p> tags
+    @test isapproxstr(st, VERSION < v"1.14.0-" ? raw"""
         <p>A list</p>
         <ul>
         <li><p>HH and FF blahGG</p>
@@ -200,6 +201,13 @@ end
         </li>
         <li><p>a last element</p>
         </li>
+        </ul>
+        """ : raw"""
+        <p>A list</p>
+        <ul>
+        <li>HH and FF blahGG</li>
+        <li>\(f\) is a function</li>
+        <li>a last element</li>
         </ul>
         """)
 

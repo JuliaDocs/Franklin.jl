@@ -25,7 +25,7 @@ fs()
         """ |> seval
     @test isapproxstr(h, """
             <p>Another figure:
-            <img src=\"/assets/output/testimg_2.png\" alt=\"fig blah $(Markdown.htmlesc("\"hello!\""))\">
+            <img src=\"/assets/output/testimg_2.png\" alt=\"fig blah $(F.htmlesc("\"hello!\""))\">
             </p>
             """)
     h = raw"""

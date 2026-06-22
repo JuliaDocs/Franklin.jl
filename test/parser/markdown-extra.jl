@@ -184,8 +184,10 @@ end
         """ |> fd2html_td
     if VERSION <= v"1.12.0"
         @test isapproxstr(s, "<p>A –-* ***_</p>") # note double -- is transformed -
-    else
+    elseif VERSION < v"1.14.0-"
         @test isapproxstr(s, "<p>A –-* ***_</p>\n") # note double -- is transformed -
+    else
+        @test isapproxstr(s, "<p>A —* ***_</p>\n") # note triple --- is now an em-dash
     end
 end
 
@@ -202,7 +204,7 @@ end
     s = "abc :+1: def" |> fd2html
     @test s // "<p>abc 👍 def</p>"
     s = "abc :+10: def" |> fd2html
-    @test s // "<p>abc :&#43;10: def</p>"
+    @test s // (VERSION < v"1.14.0-" ? "<p>abc :&#43;10: def</p>" : "<p>abc :+10: def</p>")
     s = "abc :joy: def" |> fd2html
     @test s // "<p>abc 😂 def</p>"
     s = "abc :joy def:" |> fd2html
