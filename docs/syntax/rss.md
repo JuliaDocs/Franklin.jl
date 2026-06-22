@@ -22,7 +22,7 @@ this feed so that readers can more easily stay up to date with your new content.
 
 There is a Franklin-generated `_rss` folder that contains two parts: `head.xml`
 & `item.xml` (if this is not present for you, then copy the files from the
-[FranklinTemplates source](https://github.com/tlienart/FranklinTemplates.jl/tree/master/src/templates/common/_rss).
+[FranklinTemplates source](https://github.com/JuliaDocs/FranklinTemplates.jl/tree/master/src/templates/common/_rss).
 
 The complete RSS feed will be built by assembling
 
