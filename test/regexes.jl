@@ -40,27 +40,27 @@ end
 
 ### LINK
 @testset "esclink" begin
-    s = Markdown.htmlesc("[hello]")
+    s = F.htmlesc("[hello]")
     a,b,c = match(F.ESC_LINK_PAT, s).captures
     @test isnothing(a)
     @test b == "hello"
     @test isnothing(c)
-    s = Markdown.htmlesc("[hello][]")
+    s = F.htmlesc("[hello][]")
     a,b,c = match(F.ESC_LINK_PAT, s).captures
     @test isnothing(a)
     @test b == "hello"
     @test isempty(c)
-    s = Markdown.htmlesc("[hello][id]")
+    s = F.htmlesc("[hello][id]")
     a,b,c = match(F.ESC_LINK_PAT, s).captures
     @test isnothing(a)
     @test b == "hello"
     @test c == "id"
-    s = Markdown.htmlesc("![hello][id]")
+    s = F.htmlesc("![hello][id]")
     a,b,c = match(F.ESC_LINK_PAT, s).captures
-    @test a == Markdown.htmlesc("!")
+    @test a == F.htmlesc("!")
     @test b == "hello"
     @test c == "id"
-    s = Markdown.htmlesc("[hello]:")
+    s = F.htmlesc("[hello]:")
     @test isnothing(match(F.ESC_LINK_PAT, s))
 end
 

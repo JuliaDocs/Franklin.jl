@@ -6,11 +6,34 @@ that don't need to be further considered and don't contain anything else than ma
 The boolean `stripp` indicates whether to remove the inserted `<p>` and `</p>` by the base markdown
 processor, this is relevant for things that are parsed within latex commands etc.
 """
+# Recursively replace soft line breaks ('\n' in inline text) with spaces, leaving
+# code (spans and blocks) and LaTeX untouched. See use in `md2html`.
+_collapse_soft_breaks(s::AbstractString) = replace(s, '\n' => ' ')
+_collapse_soft_breaks(c::Markdown.Code)  = c
+_collapse_soft_breaks(l::Markdown.LaTeX) = l
+function _collapse_soft_breaks(x)
+    for f in fieldnames(typeof(x))
+        fv = getfield(x, f)
+        fv isa AbstractVector && _collapse_soft_breaks!(fv)
+    end
+    return x
+end
+function _collapse_soft_breaks!(v::AbstractVector)
+    for i in eachindex(v)
+        v[i] = _collapse_soft_breaks(v[i])
+    end
+    return v
+end
+
 function md2html(ss::AS; stripp::Bool=false)::AS
     # if there's nothing, return that...
     isempty(ss) && return ss
     # Use Julia's Markdown parser followed by Julia's MD->HTML conversion
     partial = ss |> fix_inserts |> Markdown.parse
+    # collapse soft line breaks (single '\n' within inline text) into spaces; on
+    # Julia <= 1.12 `Markdown.parse` did this for us, but since then the '\n' is
+    # kept verbatim which would spread a paragraph over several lines (issue #489)
+    _collapse_soft_breaks!(partial.content)
     # take over from the parsing of indented blocks
     for (i, c) in enumerate(partial.content)
         c isa Markdown.Code || continue
@@ -21,6 +44,12 @@ function md2html(ss::AS; stripp::Bool=false)::AS
     # Markdown.html transforms {{ with HTML entities but we don't want that
     partial = replace(partial, r"&#123;&#123;" => "{{")
     partial = replace(partial, r"&#125;&#125;" => "}}")
+    # Older Markdown.html escaped '!', '[' and ']' as numeric entities; newer
+    # versions leave them literal. Franklin's link fixer (see `ESC_LINK_PAT`)
+    # relies on the escaped form to locate reference-style links, so restore it.
+    # These characters never appear structurally in the generated HTML, so this
+    # is safe (and a no-op on Julia versions that already escape them).
+    partial = replace(partial, '!' => "&#33;", '[' => "&#91;", ']' => "&#93;")
     # In some cases, base converter adds <p>...</p>\n which we might not want
     stripp || return partial
     if startswith(partial, "<p>") && endswith(partial, "</p>\n")
