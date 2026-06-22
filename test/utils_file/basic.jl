@@ -84,3 +84,23 @@ end
         """ |> fdi
     @test isapproxstr(s, "<strong>bar</strong>")
 end
+
+@testset "utils:hfun-error" begin
+    # A crashing user-defined hfun should produce a warning and return ""
+    # rather than crashing the whole build.
+    write("utils.jl", """
+        hfun_boom() = error("intentional test error")
+        """)
+    F.process_utils()
+    prev_show = F.FD_ENV[:SHOW_WARNINGS]
+    F.FD_ENV[:SHOW_WARNINGS] = true
+    s = ""
+    out = @capture_out begin
+        s = "{{boom}}" |> fdi
+    end
+    F.FD_ENV[:SHOW_WARNINGS] = prev_show
+    @test isapproxstr(s, "")
+    @test occursin("Franklin Warning", out)
+    @test occursin("boom", out)
+    @test occursin("intentional test error", out)
+end

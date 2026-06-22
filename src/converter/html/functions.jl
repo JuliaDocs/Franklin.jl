@@ -11,10 +11,25 @@ function convert_html_fblock(β::HFun)::String
     if @invokelatest(isdefined(Main, utils_symb())) && @invokelatest(isdefined(utils_module(), fun))
         # skip eval if the page is delayed
         isdelayed() && return ""
-        res = Core.eval(utils_module(), ex)
-        return string(res)
+        # In debug mode, let errors propagate with full stacktrace
+        if FD_ENV[:DEBUG_MODE]::Bool
+            return string(Core.eval(utils_module(), ex))
+        end
+        try
+            return string(Core.eval(utils_module(), ex))
+        catch err
+            # Re-throw Franklin's own exception types (e.g. HTMLFunctionError)
+            err isa FranklinException && rethrow()
+            print_warning("""
+                An error occurred when calling '$(β.fname)' on page
+                '$(FD_ENV[:SOURCE])': $(sprint(showerror, err))
+                \nRelevant pointers:
+                $POINTER_HFUN
+                """)
+            return ""
+        end
     end
-    # see if a hfun was defined internally
+    # see if a hfun was defined internally (let built-in errors propagate)
     @invokelatest(isdefined(Franklin, fun)) && return eval(ex)
     # if zero parameters, see if can fill (case: {{vname}})
     if isempty(β.params) &&
