@@ -10,7 +10,7 @@
     for pg in ("", "menu1", "menu2", "menu3")
         pgg = joinpath(pg, "index.html")
         @test occursin("""
-            <loc>https://tlienart.github.io/FranklinTemplates.jl/$pgg</loc>""", fc)
+            <loc>https://juliadocs.org/FranklinTemplates.jl/$pgg</loc>""", fc)
     end
 end
 
@@ -20,5 +20,5 @@ end
     fc = prod(readlines(f, keep=true))
 
     @test occursin(raw"""
-        Sitemap: https://tlienart.github.io/FranklinTemplates.jl/sitemap.xml""", fc)
+        Sitemap: https://juliadocs.org/FranklinTemplates.jl/sitemap.xml""", fc)
 end

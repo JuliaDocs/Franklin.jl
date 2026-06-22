@@ -21,7 +21,7 @@ function generate_tag_pages(refresh_tags=Set{String}())::Nothing
         # check first the md path (default), but in some case the tag
         # may have been collected from a raw file which may be in assets in
         # which case the rpath includes the extension (.html)
-        # see: https://github.com/tlienart/Franklin.jl/discussions/1010
+        # see: https://github.com/JuliaDocs/Franklin.jl/discussions/1010
         has_source  = isfile(rpath * ".md")
         has_source |= isfile(replace(rpath, "/assets/" => "/_assets/" ))
         has_source || delete!(PAGE_TAGS, rpath)

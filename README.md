@@ -54,7 +54,7 @@ See [the docs](https://franklinjl.org) for more information and examples.
 
 Some examples of websites using Franklin (_if you're using Franklin with a public repo, consider adding the "franklin" tag to the repo to help others find examples, thanks!_)
 
-**Adapted templates** (i.e. starting from one of [the available themes](https://tlienart.github.io/FranklinTemplates.jl/))
+**Adapted templates** (i.e. starting from one of [the available themes](https://juliadocs.org/FranklinTemplates.jl/))
 * Franklin's own website is written in Franklin, [see docs/](docs/)
 * [@cormullion's website](https://cormullion.github.io), the author of [Luxor.jl](https://github.com/JuliaGraphics/Luxor.jl),
 * MLJ's [tutorial website](https://alan-turing-institute.github.io/DataScienceTutorials.jl/) which shows how Franklin can interact nicely with [Literate.jl](https://github.com/fredrikekre/Literate.jl)
@@ -80,7 +80,7 @@ Some examples of websites using Franklin (_if you're using Franklin with a publi
 * The [Julia website](https://julialang.org), including the blog, are deployed using Franklin ([repo](https://github.com/JuliaLang/www.julialang.org))
 * [Circuitscape's website](https://circuitscape.org) was migrated from Jekyll ([repo](https://github.com/Circuitscape/www.circuitscape.org))
 * [@zlatanvasovic's website](https://zlatanvasovic.github.io) using Bootstrap 4.5 ([repo](https://github.com/zlatanvasovic/zlatanvasovic.github.io))
-* [PkgPage.jl](https://tlienart.github.io/PkgPage.jl/), front-page generator based on Franklin using Bootstrap 4.5
+* [PkgPage.jl](https://juliadocs.org/PkgPage.jl/), front-page generator based on Franklin using Bootstrap 4.5
 * [@abhishalya's website](https://abhishalya.github.io) using a custom minimalistic theme ([repo](https://github.com/abhishalya/abhishalya.github.io))
 * [JuliaCon's website](https://juliacon.org) using Franklin and Bootstrap ([repo](https://github.com/JuliaCon/www.juliacon.org))
 * [JuliaGPU's website](https://juliagpu.org) using Franklin and a custom template ([repo](https://github.com/JuliaGPU/juliagpu.org))
@@ -114,7 +114,7 @@ julia> serve()
 Modify the files in `MyNewSite/src` and see the changes being live-rendered in your browser.
 Head to [the docs](https://franklinjl.org) for more information.
 
-You can also start from [one of the templates](https://tlienart.github.io/FranklinTemplates.jl/) by doing something like:
+You can also start from [one of the templates](https://juliadocs.org/FranklinTemplates.jl/) by doing something like:
 
 ```julia
 julia> newsite("MyNewSite", template="vela")

@@ -188,7 +188,7 @@ end
             """)
 end
 
-# https://github.com/tlienart/Franklin.jl/issues/832
+# https://github.com/JuliaDocs/Franklin.jl/issues/832
 @testset "#832" begin
     s = """
        ```!
