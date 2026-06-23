@@ -141,6 +141,12 @@ function add_rss_item()
     end
     item = replace(convert_html(item_template), r"\n\n" => "")
     item = replace(item, Regex(raw"""<a\shref=(?:"|')?\#.*?>(.*?)</a>""") => s"\1")
+    # Strip index.html from URLs (consistent with sitemap behavior).
+    # Normalizing here (post-hoc on rendered XML) rather than at the
+    # url_curpage() level to avoid changing URL generation globally.
+    if globvar(:sitemap_strip_index)
+        item = replace(item, "/index.html" => "/")
+    end
 
     rss_item = RSSItem(
         item,

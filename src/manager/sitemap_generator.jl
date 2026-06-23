@@ -38,6 +38,22 @@ end
 const SITEMAP_DICT = LittleDict{String,SMOpts}()
 
 """
+    default_sitemap_priority(loc::String)::Float64
+
+Compute a default sitemap priority based on URL depth.
+Root pages get 1.0, one level deep gets 0.8, deeper pages get 0.5.
+Can be overridden per-page via `sitemap_priority` frontmatter.
+"""
+function default_sitemap_priority(loc::String)::Float64
+    stripped = replace(loc, r"index\.html$" => "")
+    stripped = strip(stripped, '/')
+    isempty(stripped) && return 1.0
+    depth = count('/', stripped)
+    depth == 0 && return 0.8
+    return 0.5
+end
+
+"""
 $SIGNATURES
 
 Add an entry to `SITEMAP_DICT`.
@@ -55,7 +71,10 @@ function add_sitemap_item(; html=false)
         fp = joinpath(path(:folder), locvar(:fd_rpath)::String)
         lastmod = Date(unix2datetime(stat(fp).mtime))
         changefreq = "monthly"
-        priority = 0.5
+        # Depth-based priority for non-markdown pages where priority
+        # was previously hardcoded to 0.5. Markdown pages use the
+        # sitemap_priority frontmatter variable directly.
+        priority = default_sitemap_priority(loc)
     end
     res = SITEMAP_DICT[loc] = SMOpts(lastmod, changefreq, priority)
     return res
@@ -76,8 +95,13 @@ function sitemap_generator()
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         """)
     base_url = globvar(:website_url)
+    strip_index = globvar(:sitemap_strip_index)
     for (k, v) in SITEMAP_DICT
         key = joinpath(escapeuri.(split(k, '/'))...)
+        key = replace(key, '\\' => '/')
+        if strip_index && endswith(key, "index.html")
+            key = key[1:end-length("index.html")]
+        end
         loc = "<loc>$(joinpath(base_url, key))</loc>"
         lastmod = "<lastmod>$(v.lastmod)</lastmod>"
         changefreq = "<changefreq>$(v.changefreq)</changefreq>"

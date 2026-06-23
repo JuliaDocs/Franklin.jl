@@ -11,11 +11,12 @@
     # when FranklinTemplates changes it (see #1116 CI).
     cfg = read(joinpath(p, "basic", "config.md"), String)
     website_url = match(r"website_url\s*=\s*\"(.*?)\"", cfg).captures[1]
-    # check pages
+    # check pages (default: index.html stripped from URLs)
     for pg in ("", "menu1", "menu2", "menu3")
-        pgg = joinpath(pg, "index.html")
-        @test occursin("<loc>$(joinpath(website_url, pgg))</loc>", fc)
+        slug = isempty(pg) ? "" : "$pg/"
+        @test occursin("<loc>$(joinpath(website_url, slug))</loc>", fc)
     end
+    @test !occursin("index.html", fc)
 end
 
 @testset "Robots.txt gen" begin
