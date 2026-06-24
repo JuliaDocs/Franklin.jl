@@ -85,7 +85,7 @@ Some examples of websites using Franklin (_if you're using Franklin with a publi
 * [JuliaCon's website](https://juliacon.org) using Franklin and Bootstrap ([repo](https://github.com/JuliaCon/www.juliacon.org))
 * [JuliaGPU's website](https://juliagpu.org) using Franklin and a custom template ([repo](https://github.com/JuliaGPU/juliagpu.org))
 * [FluxML's website](https://fluxml.ai) was migrated from jekyll (including the blogs and tutorials) ([repo](https://github.com/FluxML/fluxml.github.io))
-
+* [AcademicWebsite.jl](https://cavenfish.github.io/AcademicWebsite.jl/) a personal website template for academics, using Franklin ([repo](https://github.com/Cavenfish/AcademicWebsite.jl)).
 
 ## Getting started
 
