@@ -68,7 +68,7 @@ function validate_emojis!(tokens::Vector{Token})::Nothing
         τ.name == :CAND_EMOJI || continue
         # check if the immediate next character is `:`
         nextidx = nextind(s, to(τ))
-        if s[nextidx] == ':'
+        if nextidx <= lastindex(s) && s[nextidx] == ':'
             # check if the string describes a known emoji if not, remove,
             # otherwise re-form the emoji to add the closing ':'.
             key = "\\$(τ.ss):"
