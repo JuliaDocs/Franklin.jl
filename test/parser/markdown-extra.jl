@@ -211,6 +211,11 @@ end
     @test s // "<p>abc : joy: def</p>"
     s = "abc :joi: def" |> fd2html
     @test s // "<p>abc :joi: def</p>"
+    # candidate emoji ending at the end of the string used to throw a BoundsError
+    s = "JpegBase::readMetadata" |> fd2html
+    @test s // "<p>JpegBase::readMetadata</p>"
+    s = "abc :joy" |> fd2html
+    @test s // "<p>abc :joy</p>"
 end
 
 @testset "quad-backticks" begin
