@@ -12,7 +12,7 @@ reviewed: 18/10/20
 
 \lineskip
 
-Deploying the website is trivial on an existing web server, via GitHub or Gitlab, or on services like Netlify.
+Deploying the website is trivial on an existing web server, via GitHub or Gitlab, or on services like Netlify or deed.page.
 
 ## Deploying on an existing web server
 
@@ -155,6 +155,19 @@ The `publish` command does the optimize followed by the git stuff all in one. So
 Synchronise your local website folder with a repository (e.g. a GitHub or GitLab repository) then select that repository on Netlify and indicate you want to deploy the `__site` folder.
 
 That's it!
+
+## Deploying on deed.page
+
+If you don't need a repository or CI, you can upload the built `__site` folder to [deed.page](https://deed.page), a static host that works without an account.
+Leave `prepath` empty (the site is served at the root of `https://<slug>.deed.page/`), then build, pack and upload:
+
+@@tlist
+- `julia -e 'using Franklin; optimize(minify=false)'`
+- `tar -C __site -czf site.tar.gz .`
+- `curl -T site.tar.gz "https://deed.page/v1/sites?slug=my-franklin-site"`
+@@
+
+The JSON response contains the live URL and a `token`. Keep the token: it is shown only once and you need it to update or delete the site (send it as `Authorization: Bearer <token>` with the same `curl` command). Each upload is limited to 4 MB, see the [deed.page docs](https://deed.page/docs) for larger sites.
 
 ## Previewing Pull Requests
 
